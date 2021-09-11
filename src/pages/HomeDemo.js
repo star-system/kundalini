@@ -15,12 +15,25 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 import { Stack, HStack, VStack } from "@chakra-ui/react";
+import styled, {
+  createGlobalStyle,
+} from "styled-components";
+
 import Section from "../components/Section";
 import NuggetBox from "../components/NuggetBox";
 import PriceBox from "../siteComponents/PriceBox";
 import CheckList from "../components/CheckList";
 import { spacingStack } from "../config/commonProps";
 import SiteFooter from "../siteComponents/SiteFooter";
+import Carousel from "../components/Carousel";
+import Subheading from "../components/Subheading";
+import StickyHeader from "../components/StickyHeader";
+
+const Element = styled.div`
+  width: 260px;
+  height: 400px;
+  background: tomato;
+`;
 
 export default function HomeDemo({ Component }) {
   // 2. Use at the root of your app
@@ -29,7 +42,7 @@ export default function HomeDemo({ Component }) {
       my={4}
       // bg="gray.100"
     >
-      <Section noMarginY>
+      <StickyHeader>
         <Flex justify="space-between">
           <HStack spacing="10" fontSize="lg">
             <Link>About</Link>
@@ -39,7 +52,7 @@ export default function HomeDemo({ Component }) {
           </HStack>
           <Button>Request code</Button>
         </Flex>
-      </Section>
+      </StickyHeader>
 
       <Section>
         <Flex mr="5">
@@ -114,12 +127,24 @@ export default function HomeDemo({ Component }) {
           <Heading size="3xl">
             From rough design files, to powerful products
           </Heading>
-          <Heading size="md">
+          <Subheading>
             Duis aute irure dolor in reprehenderit in
             voluptate velit esse cillum dolore eu fugiat
             nulla pariatur excepteur sint occaecat
             cupidatat.
-          </Heading>
+          </Subheading>
+          {/* <Carousel>
+            {[...Array(10)].map((item, i) => (
+              <Element
+                key={i}
+                style={{
+                  opacity:
+                    Math.random(), 
+                    //width: random(200, 600),
+                }}
+              />
+            ))}
+          </Carousel> */}
         </Stack>
       </Section>
 
@@ -131,11 +156,11 @@ export default function HomeDemo({ Component }) {
             Start building for free, then add a plan to go
             live
           </Heading>
-          <Heading size="md">
+          <Subheading>
             Excepteur sint occaecat cupidatat non proident,
             sunt in culpa qui officia deserunt mollit
             laborum — semper quis lectus nulla. cupidatat.
-          </Heading>
+          </Subheading>
           <SimpleGrid minChildWidth="200px" spacing="40px">
             <Stack>
               <CheckList>
