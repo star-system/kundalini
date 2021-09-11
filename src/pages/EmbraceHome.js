@@ -124,7 +124,8 @@ export default function EmbraceHome({ Component }) {
 
       <Divider />
 
-      <Section>
+      <Section withStack>
+        <Heading size="3xl">FAQ</Heading>
         <FaqAccordion>
           {[
             [

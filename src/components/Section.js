@@ -8,9 +8,15 @@ import {
   Button,
   Center,
   Text,
+  Stack,
 } from "@chakra-ui/react";
+import { spacingStack } from "../config/commonProps";
 
-export default function Section({ children, noMarginY }) {
+export default function Section({
+  children,
+  noMarginY,
+  withStack,
+}) {
   return (
     <Box
       maxWidth={900}
@@ -18,7 +24,11 @@ export default function Section({ children, noMarginY }) {
       my={noMarginY ? 0 : 10}
       //   bg="gray.100"
     >
-      {children}
+      {withStack ? (
+        <Stack {...spacingStack}>{children}</Stack>
+      ) : (
+        <>{children}</>
+      )}
     </Box>
   );
 }
